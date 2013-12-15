@@ -1,7 +1,6 @@
 /*!
  * jQuery Simple Animate Plugin
- * version: 1.1.3
- * @requires jQuery v1.5 or later
+ * version: 1.0
  * Copyright (c) 2013 Tobias Nyholm
  *
  * Project repository: https://github.com/HappyR/jQuery-Simple-Animate-Plugin
