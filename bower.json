@@ -1,0 +1,21 @@
+{
+  "name": "happyr-jquery-simple-animate",
+  "version": "1.0.0",
+  "homepage": "https://github.com/HappyR/jQuery-Simple-Animate-Plugin",
+  "authors": [
+    "Nyholm <tobias.nyholm@gmail.com>"
+  ],
+  "description": "Simple animation for adding and removing DOM",
+  "main": "[jquery.simple-animate.js]",
+  "license": "MIT",
+  "dependencies": {
+    "jquery":">= 1.7.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
