@@ -39,4 +39,48 @@
             });
         });
     };
+
+    /**
+     * Fade out the element and replace it with replacementHtml.
+     *
+     *
+     * @param string replacementHtml
+     * @param int speed milliseconds
+     * @param function callback
+     *
+     * @returns html content
+     */
+    $.fn.animateReplace = function (replacementHtml, speed, callback) {
+
+        var $element=$(this);
+        speed = typeof speed !== 'undefined' ? speed : 400;
+
+        //init the replacement
+        var $replacement=$("<div></div>").append(replacementHtml);
+        $replacement.css({ opacity: 0 });
+
+        //hide the current element
+        $element.animate({ opacity: 0 }, speed, function() {
+
+            //get the dimensions of the original
+            var originalDimensions= {width: $element.width()+'px', height: $element.height()+'px'};
+
+            //replace the element and get new new dimension
+            $element.replaceWith($replacement);
+            var targetDimensions =  {width: $replacement.width()+'px', height: $replacement.height()+'px', opacity: 1};
+
+            //quick! add the form dimensions before anyone notices anything
+            $replacement.css(originalDimensions);
+
+            //animate to the proper dimensions
+            $replacement.animate(targetDimensions, speed, function() {
+                $replacement.replaceWith(function(){
+                    return $('> *', this);
+                });
+                if ( $.isFunction(callback) ) callback();
+            });
+        });
+
+        return $replacement;
+    }
 })(jQuery);
